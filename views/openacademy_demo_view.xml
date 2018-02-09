@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="demo_form_view" >
+			<field name="name">demo.form.view</field>
+			<field name="model">openacademy.demo</field>
+			<field name="arch" type="xml">
+				<form string="Rgister Form">
+					<sheet>
+						<group colspan="2">
+							<!-- Mostrar los datos de los modelos -->
+						   <group colspan="1">
+							<field name="name"/>
+							<field name="apellidos"/>
+							<field name="nacimeinto"/>
+						   </group>
+						   <group colspan="1">
+							<field name="edad"/>
+							<field name="sexo"/>
+						   </group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="demo_action">
+			<field name="name">Registro</field>
+			<field name="res_model">openacademy.demo</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<!-- Vista de arbol -->
+		<record model="ir.ui.view" id="demo_tree_view">
+			<field name="name">demo.tree.view</field>
+			<field name="model">openacademy.demo</field>
+			<field name="arch" type="xml">
+				<tree string="Registro">
+					<!-- Prueba de cerrado de etiquetas -->
+					<field name="name"></field>
+					<field name="apellidos"></field>
+					<field name="edad"/>
+					<field name="sexo"/>
+				</tree>
+			</field>
+		</record>
+		<menuitem id="new_menu" name="Nuevo menu" parent="main_openacademy_menu"/>
+		<menuitem id="submenu_menu" name="Registrar" parent="new_menu" action="demo_action"/>
+	</data>
+</odoo>
+
